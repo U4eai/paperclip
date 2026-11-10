@@ -1,7 +1,7 @@
 # Experimental memory connectors
 
 Enable **Settings → Experimental → Memory connectors**, then open **Connectors**
-and choose Mem0, Zep, Supermemory, Cognee, or Honcho. The flag defaults to off.
+and choose Mem0, Zep, Supermemory, Cognee, Honcho, or Mitosis. The flag defaults to off.
 It hides catalog setup and rejects new curated setup and initial OAuth-start
 requests on the server. Existing connections keep running and can reconnect or
 rotate credentials without re-enabling the toggle.
@@ -25,12 +25,15 @@ Official documentation and public endpoint discovery checked September 24, 2026.
 | [Supermemory](https://supermemory.ai/docs/supermemory-mcp/mcp) | Remote MCP, `https://mcp.supermemory.ai/mcp`, OAuth | Sign in and select the workspace, read/write access, and optional container tags offered by Supermemory. Developer API keys are separate from hosted MCP sign-in. |
 | [Cognee](https://docs.cognee.ai/cognee-cloud/connections/cloud-mcp) | Bundled Cloud API bridge, Cloud API key | Copy the tenant API Base URL and key from Cognee Cloud → API Keys. Requires an active Cloud workspace. The bundled bridge works in public deployments without a local MCP runtime host. |
 | [Honcho](https://honcho.dev/docs/v3/guides/integrations/mcp) | Remote MCP, `https://mcp.honcho.dev`, Bearer API key | Create an organization and API key in the Honcho dashboard. Configure the required workspace in Paperclip; it is projected into workspace-scoped tool arguments. Peer and session selectors follow provider/task context. |
+| [Mitosis](https://mitosislabs.ai/developers/mcp/clients) | Remote MCP, `https://mitosislabs.ai/api/mcp`, OAuth | Sign in to Mitosis and choose the memory. Paperclip requests `memory:read`, `memory:write`, and `offline_access`. The memory can include email, calendar, documents, and chat history the owner connected in Mitosis, so restrict agent access. |
 
-Zep and Supermemory use user grants, the existing PKCE OAuth broker, and automatic
+Zep, Supermemory, and Mitosis use user grants, the existing PKCE OAuth broker, and automatic
 client registration/discovery. Zep advertises its authorization server at
 `https://api.getzep.com/v1/oauth`, with `graph:read graph:write` scopes.
 Supermemory advertises `https://api.supermemory.ai/api/auth`, with
-`openid profile email offline_access`. Neither requires Paperclip ID or a new
+`openid profile email offline_access`. Mitosis advertises `https://mitosislabs.ai`
+(registration at `/api/oauth/register`, PKCE S256), with `memory:read memory:write
+offline_access`. None requires Paperclip ID or a new
 Paperclip-hosted credential service.
 
 Cognee does not advertise a hosted MCP endpoint. Paperclip bundles a narrow

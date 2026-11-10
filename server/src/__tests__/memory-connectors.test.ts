@@ -10,6 +10,10 @@ describe("memory tool governance", () => {
     ["supermemory", "get_profile", "read"], ["cognee", "remember", "write"],
     ["cognee", "recall", "read"], ["cognee", "forget", "destructive"],
     ["honcho", "create_peer", "write"], ["honcho", "future_unknown_action", "write"],
+    ["mitosis", "cortex_recall", "read"], ["mitosis", "cortex_ask", "read"],
+    ["mitosis", "cortex_manifest", "read"], ["mitosis", "cortex_remember", "write"],
+    ["mitosis", "cortex_ingest_conversation", "write"], ["mitosis", "cortex_create_goal", "write"],
+    ["mitosis", "cortex_connect_link", "write"], ["mitosis", "cortex_forget", "destructive"],
   ])("classifies %s %s even with a misleading read hint", (provider, name, expected) => {
     expect(classifyRisk({ name, annotations: { readOnlyHint: true } }, provider)).toBe(expected);
   });

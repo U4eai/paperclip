@@ -672,6 +672,24 @@
       "catalogVisible": true,
       "localAsset": "/brands/apps/daytona.svg",
       "darkAsset": "/brands/apps/daytona-dark.svg"
+    },
+    {
+      "slug": "mitosis",
+      "provider": "Mitosis",
+      "catalogVisible": true,
+      "localAsset": "/brands/apps/mitosis.png"
+    },
+    {
+      "slug": "8raise",
+      "provider": "8Raise",
+      "catalogVisible": true,
+      "localAsset": "/brands/apps/8raise.png"
+    },
+    {
+      "slug": "stack-ai",
+      "provider": "Stack AI",
+      "catalogVisible": true,
+      "localAsset": "/brands/apps/stack-ai.png"
     }
   ]
 }

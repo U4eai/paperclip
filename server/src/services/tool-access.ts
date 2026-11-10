@@ -2349,6 +2349,12 @@ function normalizedProviderToolName(toolName: string): string {
     .replace(/[:._-]+/g, "-");
 }
 
+// Reviewed read-only Mitosis tools (https://mitosislabs.ai/developers/mcp/tools).
+const MITOSIS_READ_TOOLS = new Set([
+  "cortex-ask", "cortex-manifest", "cortex-status", "cortex-connectable-sources",
+  "fetch", "get-pricing", "get-platform-status",
+]);
+
 // Aggregators can add arbitrarily powerful tools without changing their MCP
 // endpoint. Only these reviewed, exact capabilities are read-only. Unknown or
 // renamed actions remain enabled by the usual access rules, but have write risk.
@@ -2371,6 +2377,9 @@ export function classifyRisk(
     if (verbMatches(tool.name, "delete|remove|destroy|forget|prune|reset")) return "destructive";
     // Supermemory uses one add_memory tool for both save and forget.
     if (sourceTemplateKey === "supermemory" && normalizedToolName === "add-memory") return "destructive";
+    // Mitosis lookups whose names carry no read verb. Saves, ingests, goals,
+    // enrichment choices and connect links stay write by the rules below.
+    if (sourceTemplateKey === "mitosis" && MITOSIS_READ_TOOLS.has(normalizedToolName)) return "read";
     if (verbMatches(tool.name, "add|remember|save|record|ingest|cognify|update|create|set|upload|select|rename|share")) return "write";
     if (annotations.readOnlyHint === false || annotations.writeHint === true) return "write";
     const reads = ["get", "list", "search", "recall", "query", "retrieve", "who"];

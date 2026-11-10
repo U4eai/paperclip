@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "slug": "8raise",
+  "name": "8Raise",
+  "description": "Find and research investors for a fundraise by asking in plain language.",
+  "categories": [
+    "data"
+  ],
+  "featured": false,
+  "branding": {
+    "logoUrl": "/brands/apps/8raise.png"
+  },
+  "urlPatterns": [
+    "https://mcp.8raise.com/*"
+  ],
+  "docsUrl": "https://8raise.com/connect",
+  "redirectConstraints": "https-or-loopback-http",
+  "methods": [
+    {
+      "key": "mcp-oauth",
+      "transport": "mcp_remote",
+      "auth": "oauth",
+      "ownershipModes": [
+        "dcr"
+      ],
+      "whenToUse": "Use browser sign-in for the hosted 8Raise server.",
+      "defaults": {
+        "serverUrl": "https://mcp.8raise.com/mcp",
+        "scopesHint": [
+          "openid",
+          "profile",
+          "email",
+          "mcp"
+        ]
+      },
+      "guidanceMd": "Sign in to 8Raise and click Allow. Agents can then search for investors using your account.",
+      "riskTier": "S2",
+      "label": "Sign in with 8Raise",
+      "consoleLinks": {
+        "docs": "https://8raise.com/connect"
+      },
+      "grantKinds": [
+        "user"
+      ]
+    }
+  ]
+}

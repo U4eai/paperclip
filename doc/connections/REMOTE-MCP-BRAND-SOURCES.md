@@ -16,3 +16,17 @@ Both files preserve provider artwork without recoloring. Both Telem.AI files are
 provides the standard gray frame and contained padding. Arcade’s SVG favicon
 wrapped embedded raster content; the 180px touch icon linked by the same official
 page was used to satisfy the repository’s artwork safety checks.
+
+## 2026-11-10 additions
+
+Retrieved 2026-11-10 from each provider's own published assets. Files are
+byte-identical to the published files; none are recolored or resized.
+
+| File | Source | SHA-256 |
+| --- | --- | --- |
+| `ui/public/brands/apps/mitosis.png` | [Mitosis app icon](https://mitosislabs.ai/mitosis-app-icon-512w.png), declared as the organization logo on [mitosislabs.ai](https://mitosislabs.ai/) | `44c920b9d6a68200e4f159a08c006b4933711a357f573718f33a6979ab5a0224` |
+| `ui/public/brands/apps/8raise.png` | [8Raise mark](https://8raise.com/8raise-mark.png), declared as `logo_uri` in [8Raise's MCP protected-resource metadata](https://mcp.8raise.com/.well-known/oauth-protected-resource) | `02a3306e11c8d509c0762e83fab069ffc79910f5388903d4b39d29a0cb1e5351` |
+| `ui/public/brands/apps/stack-ai.png` | [StackAI light-scheme site icon](https://framerusercontent.com/images/CdmJotf8x1dzeIh0S4a5ce9ZFwo.png), linked from [stack-ai.com](https://www.stack-ai.com/) | `a5d14c9fff3a97de74fb13f478550ecf3ed40d9e2726ffccfa5c203ba2b48882` |
+
+All three are opaque rounded-tile marks that keep contrast on both frames, so no
+dark variants are added.

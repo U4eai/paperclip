@@ -659,6 +659,20 @@ describe("AppDefinition catalog", () => {
       auth: "none",
       defaults: { serverUrl: "https://mcp.context7.com/mcp" },
     });
+    expect(method("8raise")).toMatchObject({
+      auth: "oauth",
+      ownershipModes: ["dcr"],
+      defaults: {
+        serverUrl: "https://mcp.8raise.com/mcp",
+        scopesHint: ["openid", "profile", "email", "mcp"],
+      },
+    });
+    expect(method("stack-ai")).toMatchObject({
+      auth: "oauth",
+      ownershipModes: ["dcr"],
+      defaults: { serverUrl: "https://mcp.stack.ai/mcp" },
+    });
+    expect(method("stack-ai")?.defaults?.scopesHint).toBeUndefined();
     expect(
       APP_DEFINITIONS.find((app) => app.slug === "planetscale")?.methods.map(
         (candidate) => candidate.key,
@@ -884,7 +898,7 @@ describe("AppDefinition catalog", () => {
       "ticktick",
       "xero",
     ]);
-    expect(APP_STORE_DEFINITIONS).toHaveLength(81);
+    expect(APP_STORE_DEFINITIONS).toHaveLength(84);
     const connectableSlugs = new Set(
       CONNECTABLE_APP_DEFINITIONS.map((entry) => entry.slug),
     );

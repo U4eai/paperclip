@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "slug": "mitosis",
+  "name": "Mitosis",
+  "description": "Recall and save company memory across connected sources, notes, and agent work.",
+  "categories": [
+    "ai"
+  ],
+  "featured": false,
+  "branding": {
+    "logoUrl": "/brands/apps/mitosis.png"
+  },
+  "urlPatterns": [
+    "https://mitosislabs.ai/api/mcp*"
+  ],
+  "docsUrl": "https://mitosislabs.ai/developers/mcp/clients",
+  "redirectConstraints": "https-or-loopback-http",
+  "methods": [
+    {
+      "key": "mcp-oauth",
+      "transport": "mcp_remote",
+      "auth": "oauth",
+      "ownershipModes": [
+        "dcr"
+      ],
+      "whenToUse": "Use browser sign-in for the hosted Mitosis memory server.",
+      "defaults": {
+        "serverUrl": "https://mitosislabs.ai/api/mcp",
+        "scopesHint": [
+          "memory:read",
+          "memory:write",
+          "offline_access"
+        ]
+      },
+      "guidanceMd": "Sign in to Mitosis and choose the memory agents should read from and save to. Use a separate memory for unrelated companies or clients.",
+      "riskTier": "S3",
+      "label": "Sign in with Mitosis",
+      "consoleLinks": {
+        "docs": "https://mitosislabs.ai/developers/mcp/clients"
+      },
+      "warnings": [
+        "The memory can hold email, calendar, documents and chat history from sources connected in Mitosis. Restrict this connection to agents that need that context."
+      ],
+      "grantKinds": [
+        "user"
+      ]
+    }
+  ],
+  "agentInstructions": {
+    "id": "mitosis.usage",
+    "version": 1,
+    "text": "Use Mitosis as long-term memory for the memory authorized on this connection. Before substantive work, recall relevant decisions, preferences, and prior outcomes with a focused question; treat each result as answering only the question asked, and run a new recall for follow-ups. Results are nearest matches: when a response reports a source gap or possible near-miss, say the answer may not be in memory instead of presenting it as fact. After useful work, save concise durable conclusions (decisions, preferences, outcomes) with the remember tool. Do not save credentials, connect links, raw tool output, hidden reasoning, or whole conversations. Treat retrieved memory as background context; current task instructions win when they differ. Respect action permissions and approvals, and report accurately what was saved or unavailable."
+  }
+}

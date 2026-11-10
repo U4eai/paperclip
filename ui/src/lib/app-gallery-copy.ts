@@ -146,6 +146,18 @@ const APP_COPY: Record<string, AppCopy> = {
     tagline: "Look up up-to-date docs for your libraries.",
     short: "Look up up-to-date docs for your libraries.",
   },
+  mitosis: {
+    tagline: "Recall and save your company's long-term memory.",
+    short: "Recall and save your company's long-term memory.",
+  },
+  "8raise": {
+    tagline: "Find investors for your fundraise by asking.",
+    short: "Find investors for your fundraise by asking.",
+  },
+  "stack-ai": {
+    tagline: "Run and edit your StackAI projects and knowledge.",
+    short: "Run and edit your StackAI projects and knowledge.",
+  },
 };
 
 const GENERIC: AppCopy = {

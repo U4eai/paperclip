@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "slug": "stack-ai",
+  "name": "Stack AI",
+  "description": "Find, run, and edit StackAI projects, search knowledge bases, and inspect runs.",
+  "categories": [
+    "ai"
+  ],
+  "featured": false,
+  "branding": {
+    "logoUrl": "/brands/apps/stack-ai.png"
+  },
+  "urlPatterns": [
+    "https://mcp.stack.ai/*"
+  ],
+  "docsUrl": "https://docs.stackai.com/stackai-mcp/overview",
+  "redirectConstraints": "https-or-loopback-http",
+  "methods": [
+    {
+      "key": "mcp-oauth",
+      "transport": "mcp_remote",
+      "auth": "oauth",
+      "ownershipModes": [
+        "dcr"
+      ],
+      "whenToUse": "Use browser sign-in for the hosted StackAI MCP server.",
+      "defaults": {
+        "serverUrl": "https://mcp.stack.ai/mcp"
+      },
+      "guidanceMd": "Sign in to StackAI, then confirm the active organization. A read-only connection hides create, edit, upload, run and evaluator-preview tools.",
+      "riskTier": "S3",
+      "label": "Sign in with StackAI",
+      "consoleLinks": {
+        "docs": "https://docs.stackai.com/stackai-mcp/connect-and-choose-your-organization"
+      },
+      "warnings": [
+        "Running a project or generating evaluation results can run its integrations, and updating a skill changes the version agents use immediately. Keep those actions on Ask first."
+      ],
+      "grantKinds": [
+        "user"
+      ]
+    }
+  ]
+}

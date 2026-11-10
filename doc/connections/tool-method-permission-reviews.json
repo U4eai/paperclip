@@ -2686,6 +2686,64 @@
       "reviewedAt": "2026-10-15",
       "liveProof": "not-run",
       "keyPermissions": "Create an organization key with the read, write, and delete permissions for the resources you intend to manage. Daytona toolbox access is available to every valid organization key, even without selected scopes. Some user or administration endpoints require provider user authentication and will reject an API key."
+    },
+    {
+      "app": "mitosis",
+      "method": "mcp-oauth",
+      "auth": "oauth",
+      "policy": "explicit",
+      "requestedScopes": [
+        "memory:read",
+        "memory:write",
+        "offline_access"
+      ],
+      "capability": "write",
+      "supportedActions": "Recall from and ask questions of the authorized Mitosis memory; save conclusions (remember) and ingest documents or conversation exchanges into it. Public pricing, docs and status tools need no grant.",
+      "evidence": [
+        "https://mitosislabs.ai/developers/mcp/clients",
+        "https://mitosislabs.ai/.well-known/oauth-protected-resource/api/mcp",
+        "https://mitosislabs.ai/.well-known/oauth-authorization-server"
+      ],
+      "reviewedAt": "2026-11-10",
+      "liveProof": "not-run"
+    },
+    {
+      "app": "8raise",
+      "method": "mcp-oauth",
+      "auth": "oauth",
+      "policy": "explicit",
+      "requestedScopes": [
+        "openid",
+        "profile",
+        "email",
+        "mcp"
+      ],
+      "capability": "provider-controlled",
+      "supportedActions": "Search and research investors with the signed-in 8Raise account; tool set is provider-controlled.",
+      "evidence": [
+        "https://8raise.com/connect",
+        "https://mcp.8raise.com/.well-known/oauth-protected-resource",
+        "https://8raise.com/.well-known/oauth-authorization-server"
+      ],
+      "reviewedAt": "2026-11-10",
+      "liveProof": "not-run"
+    },
+    {
+      "app": "stack-ai",
+      "method": "mcp-oauth",
+      "auth": "oauth",
+      "policy": "provider-default",
+      "requestedScopes": [],
+      "providerDefaultReason": "StackAI's protected-resource and authorization-server metadata advertise no scopes; access follows the signed-in user's organization permissions and the read-only or read-write choice made at sign-in.",
+      "capability": "write",
+      "supportedActions": "List, inspect, create, edit, validate and run projects; search knowledge bases; read runs and audit logs; manage evaluations and skills; upload files. Trigger edits, provider authorization, project deletion and export are not exposed.",
+      "evidence": [
+        "https://docs.stackai.com/stackai-mcp/overview",
+        "https://mcp.stack.ai/.well-known/oauth-protected-resource/mcp",
+        "https://mcp.stack.ai/.well-known/oauth-authorization-server"
+      ],
+      "reviewedAt": "2026-11-10",
+      "liveProof": "not-run"
     }
   ]
 }
