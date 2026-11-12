@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(rg:*)",
+      "Bash(pnpm test)",
+      "Bash(pnpm test:run)",
+      "Bash(pnpm typecheck)",
+      "Bash(pnpm -r typecheck)",
+      "Bash(pnpm build)",
+      "Bash(pnpm exec vitest run:*)",
+      "Bash(pnpm --filter @paperclipai/server typecheck)",
+      "Bash(pnpm --filter @paperclipai/ui typecheck)",
+      "Bash(pnpm --filter @paperclipai/shared typecheck)",
+      "Bash(pnpm --filter @paperclipai/db typecheck)",
+      "Bash(pnpm check:token-gates)",
+      "Bash(pnpm check:module-boundaries)",
+      "Bash(node scripts/check-maps.mjs)",
+      "Bash(node scripts/storybook-catalog.mjs)",
+      "Bash(node scripts/check-token-gates.mjs)",
+      "Bash(node scripts/check-module-boundaries.mjs)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/scoped-rules.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
